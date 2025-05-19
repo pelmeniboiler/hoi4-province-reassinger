@@ -16,7 +16,7 @@ Here's how to reassign provinces in HoI4:
 
 5. The specified provinces will be removed from their current states (if any) and added to the state you entered.
 
-
+<img src="https://github.com/pelmeniboiler/hoi4-province-reassinger/blob/master/icon.png" alt="Beautiful AI Generated Image" >
 
 ## Requirements
 
