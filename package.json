@@ -1,0 +1,63 @@
+{
+  "name": "hoi4-province-reassigner",
+  "displayName": "HOI4 Province Reassigner",
+  "description": "A VS Code extension for Hearts of Iron IV modders to reassign provinces to states in state files.",
+  "version": "1.0.0",
+  "publisher": "pelmeniboiler",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "HOI4",
+    "Hearts of Iron IV",
+    "modding",
+    "provinces",
+    "states"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "hoi4.reassignProvinces",
+        "title": "HOI4: Reassign Provinces to State"
+      }
+    ],
+    "configuration": {
+      "title": "HOI4 Province Reassigner",
+      "properties": {
+        "hoi4ProvinceReassigner.statesDirectory": {
+          "type": "string",
+          "default": "history/states",
+          "description": "Relative path to the HOI4 states directory containing state files."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.75.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
+    "eslint": "^8.18.0",
+    "typescript": "^4.7.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pelmeniboiler/hoi4-province-reassigner"
+  },
+  "bugs": {
+    "url": "https://github.com/pelmeniboiler/hoi4-province-reassigner/issues"
+  },
+  "homepage": "https://github.com/pelmeniboiler/hoi4-province-reassigner#readme",
+  "license": "MIT",
+  "icon": "icon.png"
+}
