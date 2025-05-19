@@ -5,7 +5,8 @@
   <img src="https://github.com/pelmeniboiler/hoi4-province-reassinger/blob/master/icon.png" alt="Beautiful AI Generated Image" width="118" height="118">
    <img src="https://github.com/pelmeniboiler/hoi4-province-reassinger/blob/master/banner.png" alt="Beautiful AI Generated Image" >
 </p>
-## What if Hearts of Iron had a tool that let you reassign provinces between states without manual edits?
+
+**What if Hearts of Iron had a tool that let you reassign provinces between states without manual edits?**
 
 What if that tool didn't create files in your HOI4 user folder that crash your game?
 
