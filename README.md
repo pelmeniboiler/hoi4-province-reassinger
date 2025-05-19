@@ -3,7 +3,7 @@
 <p align="center">
   
   <img src="https://github.com/pelmeniboiler/hoi4-province-reassinger/blob/master/icon.png" alt="Beautiful AI Generated Image" width="118" height="118">
-
+   <img src="https://github.com/pelmeniboiler/hoi4-province-reassinger/blob/master/banner.png" alt="Beautiful AI Generated Image" >
 </p>
 This is a command for VS Code that allows you to assign and reassign provinces state-to-state for your Hearts of Iron 4 Mod.
 
