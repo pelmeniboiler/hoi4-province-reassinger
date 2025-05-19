@@ -19,6 +19,9 @@
     "states"
   ],
   "main": "./out/extension.js",
+  "activationEvents": [
+    "onCommand:hoi4.reassignProvinces"
+  ],
   "contributes": {
     "commands": [
       {
