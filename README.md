@@ -14,9 +14,7 @@ This is a command for VS Code that allows you to assign and reassign provinces s
 
 * Provinces are removed from any state they are already present in and assigned to the state you want them in.
 
-\!\[HOI4 Province Reassigner \]\(icon.png\)
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
 
 ## Requirements
 
