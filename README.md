@@ -30,7 +30,7 @@ Here's how to reassign provinces in HoI4:
 ## Requirements
 
 [This extension basically outmodes the nudger and you should use it.](https://github.com/herbix/hoi4modutilities/tree/master)
-HOI4, not really but I don't know what you'd use this for otherwise.
+<br>HOI4, not really but I don't know what you'd use this for otherwise.
 
 ## Extension Settings
 
