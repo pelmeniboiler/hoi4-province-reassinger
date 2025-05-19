@@ -1,5 +1,10 @@
 # hoi4-province-reassinger README
 
+<p align="center">
+  
+  <img src="https://github.com/pelmeniboiler/hoi4-province-reassinger/blob/master/icon.png" alt="Beautiful AI Generated Image" width="118" height="118">
+
+</p>
 This is a command for VS Code that allows you to assign and reassign provinces state-to-state for your Hearts of Iron 4 Mod.
 
 ## Features
@@ -15,8 +20,6 @@ Here's how to reassign provinces in HoI4:
 4. Enter the ID of the state you want to assign the selected provinces to.
 
 5. The specified provinces will be removed from their current states (if any) and added to the state you entered.
-
-<img src="https://github.com/pelmeniboiler/hoi4-province-reassinger/blob/master/icon.png" alt="Beautiful AI Generated Image" >
 
 ## Requirements
 
