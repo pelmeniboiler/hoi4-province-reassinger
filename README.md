@@ -4,15 +4,17 @@ This is a command for VS Code that allows you to assign and reassign provinces s
 
 ## Features
 
-* CTRL+SHIFT+P
+Here's how to reassign provinces in HoI4:
 
-* hoi4.reassignProvinces
+1. Press CTRL + SHIFT + P.
 
-* Type your provinces separated by spaces
+2. Type hoi4.reassignProvinces and press Enter.
 
-* Type your state
+3. Enter the IDs of the provinces you want to reassign, separating each ID with a space.
 
-* Provinces are removed from any state they are already present in and assigned to the state you want them in.
+4. Enter the ID of the state you want to assign the selected provinces to.
+
+5. The specified provinces will be removed from their current states (if any) and added to the state you entered.
 
 
 
