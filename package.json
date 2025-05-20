@@ -2,7 +2,7 @@
   "name": "hoi4-province-reassigner",
   "displayName": "HOI4 Province Reassigner",
   "description": "A VS Code extension for Hearts of Iron IV modders to reassign provinces to states in state files.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "pelmeniboiler",
   "engines": {
     "vscode": "^1.75.0"
@@ -27,6 +27,10 @@
       {
         "command": "hoi4.reassignProvinces",
         "title": "HOI4: Reassign Provinces to State"
+      },
+      {
+        "command": "hoi4.createState",
+        "title": "HOI4: Create New State"
       }
     ],
     "configuration": {
