@@ -24,7 +24,7 @@ export function activate(context: vscode.ExtensionContext) {
             if (!provinceIds) return;
             const stateName = await vscode.window.showInputBox({
                 prompt: 'Enter the display name for the new state',
-                placeHolder: 'Swuimp',
+                placeHolder: 'Gerald',
                 validateInput: value => value.trim() ? null : 'Please enter a state name.'
             });
             if (!stateName) return;
@@ -61,6 +61,8 @@ export function activate(context: vscode.ExtensionContext) {
             const localisationFilePath = getLocalisationFilePath();
             if (localisationFilePath) {
                 appendStateName(localisationFilePath, newStateId, stateName);
+            } else {
+                vscode.window.showWarningMessage('Localization file not found or inaccessible.');
             }
             await reassignProvinces(statesDirPath, provinceIds, newStateId.toString());
             vscode.window.showInformationMessage(`Created state ${newStateId} "${stateName}" with provinces ${provinceIds.join(', ')} in "${newFileName}".`);
@@ -141,15 +143,26 @@ function getLocalisationFilePath(): string | undefined {
 
 function appendStateName(filePath: string, stateId: number, stateName: string) {
     const entry = ` STATE_${stateId}:0 "${stateName}"\n`;
-    if (fs.existsSync(filePath)) {
-        const content = fs.readFileSync(filePath, 'utf8');
-        if (!content.startsWith('l_english:')) {
-            vscode.window.showErrorMessage('Localization file does not start with "l_english:".');
-            return;
+    vscode.window.showInformationMessage(`Attempting to append to: ${filePath}`);
+    try {
+        if (fs.existsSync(filePath)) {
+            let content = fs.readFileSync(filePath, 'utf8');
+            vscode.window.showInformationMessage(`File content starts with: ${content.slice(0, 20).replace(/\n/g, '\\n')}`);
+            // Skip strict l_english: check to avoid blocking
+            // Ensure file ends with a newline
+            if (!content.endsWith('\n')) {
+                content += '\n';
+                fs.writeFileSync(filePath, content, 'utf8');
+                vscode.window.showInformationMessage(`Added newline to end of file`);
+            }
+            fs.appendFileSync(filePath, entry, 'utf8');
+            vscode.window.showInformationMessage(`Appended state name: ${entry.trim()}`);
+        } else {
+            fs.writeFileSync(filePath, `l_english:\n${entry}`, 'utf8');
+            vscode.window.showInformationMessage(`Created new localization file: ${filePath}`);
         }
-        fs.appendFileSync(filePath, entry, 'utf8');
-    } else {
-        fs.writeFileSync(filePath, `l_english:\n${entry}`, 'utf8');
+    } catch (error) {
+        vscode.window.showErrorMessage(`Failed to append to localization file: ${error instanceof Error ? error.message : String(error)}`);
     }
 }
 
