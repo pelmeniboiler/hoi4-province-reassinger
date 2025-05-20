@@ -28,7 +28,7 @@ export function activate(context: vscode.ExtensionContext) {
                 validateInput: value => value.trim() ? null : 'Please enter a state name.'
             });
             if (!stateName) return;
-            const stateCategories = ['enclave', 'tiny_island', 'pastoral', 'small_island', 'rural', 'town', 'large_town', 'city', 'large_city', 'metropolis', 'megalopolis'];
+            const stateCategories = ['enclave', 'tiny_island', 'pastoral', 'small_island', 'rural', 'town', 'large_town', 'city', 'large_city', 'metropolis', 'megalopolis', 'wasteland'];
             const stateCategory = await vscode.window.showQuickPick(stateCategories, { placeHolder: 'Select the state category', canPickMany: false });
             if (!stateCategory) return;
             const statesDirPath = getStatesDirPath();
