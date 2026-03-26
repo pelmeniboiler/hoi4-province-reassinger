@@ -55,7 +55,7 @@ export function activate(context: vscode.ExtensionContext) {
                 return;
             }
             const stateContent = generateStateContent(newStateId, stateCategory, ownerTag, coreTags, provinceIds);
-            const newFileName = `${newStateId}-NewState.txt`;
+            const newFileName = `${newStateId}-${stateName}.txt`;
             const newFilePath = path.join(statesDirPath, newFileName);
             fs.writeFileSync(newFilePath, stateContent, 'utf8');
             const localisationFilePath = getLocalisationFilePath();
@@ -126,7 +126,7 @@ function getLocalisationFilePath(): string | undefined {
         return undefined;
     }
     const config = vscode.workspace.getConfiguration('hoi4ProvinceReassigner');
-    const defaultLocalisationFile = 'localisation/state_names_l_english.yml';
+    const defaultLocalisationFile = 'localisation/english/state_names_l_english.yml';
     const localisationFile = config.get<string>('localisationFile', defaultLocalisationFile);
     const localisationFilePath = path.join(workspaceFolders[0].uri.fsPath, localisationFile);
     const localisationDir = path.dirname(localisationFilePath);
@@ -256,14 +256,21 @@ async function reassignProvinces(statesDir: string, provinceIds: string[], targe
         }
         let provincesBlock = provincesMatch[1];
         let provinceList: string[] = (provincesBlock.match(/\d+/g) || []).map(String);
+        const originalLength = provinceList.length;
         provinceList = provinceList.filter(id => !provinceIds.includes(id));
+        let shouldWrite = false;
         if (currentStateId === targetStateId) {
             provinceList.push(...provinceIds);
             provinceList.sort((a, b) => parseInt(a) - parseInt(b));
+            shouldWrite = true;
+        } else if (provinceList.length !== originalLength) {
+            shouldWrite = true;
         }
-        const newProvincesBlock = `provinces={\n\t${provinceList.join(' ')}\n}`;
-        const newContent = content.replace(provincesRegex, newProvincesBlock);
-        fs.writeFileSync(filePath, newContent, 'utf8');
+        if (shouldWrite) {
+            const newProvincesBlock = `provinces={\n\t${provinceList.join(' ')}\n}`;
+            const newContent = content.replace(provincesRegex, newProvincesBlock);
+            fs.writeFileSync(filePath, newContent, 'utf8');
+        }
     }
 }
 
